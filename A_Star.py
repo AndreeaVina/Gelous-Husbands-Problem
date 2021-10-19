@@ -56,21 +56,6 @@ def displaySolution(parent,visited):
 
 
 def A_star(state,nrOfCouples):
-    # states_queue = []
-    # parent = []
-    # visited = []
-    # states_queue.append(state)
-    # visited.append(state)
-    # parent.append(-1)
-    # while True : 
-    #     states_queue = queueSorting(states_queue,Heuristic_A_Star,nrOfCouples)
-    #     best_state = states_queue[0]
-    #     if best_state not in visited:
-    #         visited.append(best_state)
-    #         parent.append(state)
-    #     else:
-    #         gvh
-     
     solution = []
     coada = [state]
     visited = []
