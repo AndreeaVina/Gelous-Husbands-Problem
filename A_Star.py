@@ -1,6 +1,11 @@
-from CommonFunctions import checkIfTransitionIsValid,makeTransition,checkIfStateIsFinal
+from CommonFunctions import checkIfTransitionIsValid,makeTransition
 persons = []
-def person():
+def checkIfStateIsFinal(state,nrOfCouples):
+    for i in range(0, nrOfCouples * 2 + 1):
+        if state[i] == 0:
+            return False
+    return True
+def person(nrOfCouples):
     global persons
     for i in range(1, 2 * nrOfCouples, 2):
         persons.append("h" + str(i // 2 + 1))
@@ -74,20 +79,20 @@ def A_star(state,nrOfCouples):
             visited.append(best_choice)
             parent.append(nod)
             coada.append(best_choice)
-            if (checkIfStateIsFinal(best_choice)):
+            if (checkIfStateIsFinal(best_choice,nrOfCouples)):
                 print(solution)
                 # displaySolution(parent,visited)
                 exit()
         else: 
             number = 1
-            while best_choice in visited:
+            while best_choice in visited and number < len(neighbours):
                 best_choice = neighbours[number]
                 number += 1
             solution.append(best_choice)
             visited.append(best_choice)
             parent.append(nod)
             coada.append(best_choice)
-            if (checkIfStateIsFinal(best_choice)):
+            if (checkIfStateIsFinal(best_choice,nrOfCouples)):
                 print(solution)
                 # displaySolution(parent,visited)
                 exit()
