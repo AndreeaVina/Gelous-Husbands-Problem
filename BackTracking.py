@@ -6,6 +6,7 @@ def person():
     for i in range(1, 2 * nrOfCouples, 2):
         persons.append("h" + str(i // 2 + 1))
         persons.append("w" + str(i // 2 + 1))
+    return persons
 
 
 def initialize_state():
@@ -52,9 +53,16 @@ def makeTransition(state, person1, person2, side):
 def displaySolutionBKT():
     person()
     for i in range(0, len(solution), 3):
-        print(persons[solution[i] - 1] + " ")
-        if (solution[i + 1] != -1):
-            print(persons[solution[i + 1] - 1] + " ")
+        if (solution[i + 1] == -1):
+            if(solution[i+2]==0):
+                print(str(persons[solution[i] - 1]) + "->stanga")
+            else:
+                print(str(persons[solution[i] - 1]) + "->dreapta")
+        else:
+            if(solution[i+2]==0):
+                print(str(persons[solution[i] - 1]) + " " + str(persons[solution[i+1] - 1]) + "->stanga")
+            else:
+                print(str(persons[solution[i] - 1]) + " " + str(persons[solution[i+1] - 1]) + "->dreapta")
     print(solution)
 
 

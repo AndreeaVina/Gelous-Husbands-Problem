@@ -1,3 +1,4 @@
+from BackTracking import person
 from Globals import nrOfCouples,visited,solution,parent,persons
 def checkIfStateIsFinal(state):
     for i in range(0, nrOfCouples * 2 + 1):
@@ -37,11 +38,12 @@ def makeTransition(state, person1, person2, side):
 
 def revealTransition(state1, state2):
     global persons
+    persons = person()
     toDisplay = ''
     for i in range(1, len(state1)):
         if (state1[i] != state2[i]):
             toDisplay += persons[i - 1]
-            toDisplay + " "
+            toDisplay += " "
     return toDisplay
 def displaySolutionBFS():
     global parent

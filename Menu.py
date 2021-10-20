@@ -20,7 +20,7 @@ def Menu():
     if(desiredProgram=="BKT"):
         BackTracking(initialize_state(nrOfCouples))
     elif(desiredProgram=="BFS"):
-        BFS(initialize_state())
+        BFS(initialize_state(nrOfCouples))
     elif(desiredProgram=="Hillclimbing"):
         HillClimbing(initialize_state(nrOfCouples),nrOfCouples)
     elif(desiredProgram=="A*"):

@@ -32,6 +32,29 @@ def HillClimbing(state,nrOfCouples):
         neighbours = get_better_or_equal_neighbours(better_neighbour,Heuristic)
         if len(neighbours) == 0:
             print("Partial solution found : ")
+            for i in range(1,len(solution)):
+                prevState = solution[i-1]
+                actuallyState = solution[i]
+                sol = [x ^ y for (x, y) in zip(prevState, actuallyState)]
+                strState = ""
+                for j in range (1,len(sol)):
+                    if(j==1 and sol[j]!=0):
+                        strState += "h1 "
+                    elif(j==2 and sol[j]!=0):
+                        strState += "w1 "
+                    elif(j==3 and sol[j]!=0):
+                        strState += "h2 "
+                    elif(j==4 and sol[j]!=0):
+                        strState += "w2 "
+                    elif(j==5 and sol[j]!=0):
+                        strState += "h3 "
+                    elif(j==6 and sol[j]!=0):
+                        strState += "w3 "
+                if(actuallyState[0]):
+                    strState += "->dreapta"
+                else:
+                    strState += "->stanga"
+                print(strState)
             print(solution)
             break
         better_neighbour = random.choice(neighbours)
@@ -44,10 +67,56 @@ def HillClimbing(state,nrOfCouples):
             solution.append(better_neighbour)
         if checkIfStateIsFinal(better_neighbour):
             print("Complete solution found : ")
+            for i in range(1,len(solution)):
+                prevState = solution[i-1]
+                actuallyState = solution[i]
+                sol = [x ^ y for (x, y) in zip(prevState, actuallyState)]
+                strState = ""
+                for j in range (1,len(sol)):
+                    if(j==1 and sol[j]!=0):
+                        strState += "h1 "
+                    elif(j==2 and sol[j]!=0):
+                        strState += "w1 "
+                    elif(j==3 and sol[j]!=0):
+                        strState += "h2 "
+                    elif(j==4 and sol[j]!=0):
+                        strState += "w2 "
+                    elif(j==5 and sol[j]!=0):
+                        strState += "h3 "
+                    elif(j==6 and sol[j]!=0):
+                        strState += "w3 "
+                if(actuallyState[0]):
+                    strState += "->dreapta"
+                else:
+                    strState += "->stanga"
+                print(strState)
             print(solution)
             break
-        elif len(neighbours) == 0:
+        elif (len(neighbours) == 0):
             print("Partial solution found : ")
+            for i in range(1,len(solution)):
+                prevState = solution[i-1]
+                actuallyState = solution[i]
+                sol = [x ^ y for (x, y) in zip(prevState, actuallyState)]
+                strState = ""
+                for j in range (1,len(sol)):
+                    if(j==1 and sol[j]!=0):
+                        strState += "h1 "
+                    elif(j==2 and sol[j]!=0):
+                        strState += "w1 "
+                    elif(j==3 and sol[j]!=0):
+                        strState += "h2 "
+                    elif(j==4 and sol[j]!=0):
+                        strState += "w2 "
+                    elif(j==5 and sol[j]!=0):
+                        strState += "h3 "
+                    elif(j==6 and sol[j]!=0):
+                        strState += "w3 "
+                if(actuallyState[0]):
+                    strState += "->dreapta"
+                else:
+                    strState += "->stanga"
+                print(strState)
             print(solution)
             break
 

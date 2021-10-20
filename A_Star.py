@@ -49,16 +49,30 @@ def revealTransition(state1, state2):
     return toDisplay
 
 
-def displaySolution(parent,visited):
-    current_index = len(parent) - 1
-    toDisplay = []
-    while parent[current_index] != -1:
-        toDisplay.append(revealTransition(visited[parent[current_index]], visited[current_index]))
-        current_index = parent[current_index]
-    toDisplay.reverse()
-    for display in toDisplay:
-       print(display)
-
+def displaySolution(solution):
+    for i in range(1,len(solution)):
+        prevState = solution[i-1]
+        actuallyState = solution[i]
+        sol = [x ^ y for (x, y) in zip(prevState, actuallyState)]
+        strState = ""
+        for j in range (1,len(sol)):
+            if(j==1 and sol[j]!=0):
+                strState += "h1 "
+            elif(j==2 and sol[j]!=0):
+                strState += "w1 "
+            elif(j==3 and sol[j]!=0):
+                strState += "h2 "
+            elif(j==4 and sol[j]!=0):
+                strState += "w2 "
+            elif(j==5 and sol[j]!=0):
+                strState += "h3 "
+            elif(j==6 and sol[j]!=0):
+                strState += "w3 "
+        if(actuallyState[0]):
+            strState += "->dreapta"
+        else:
+            strState += "->stanga"
+        print(strState)
 
 def A_star(state,nrOfCouples):
     solution = []
@@ -80,8 +94,9 @@ def A_star(state,nrOfCouples):
             parent.append(nod)
             coada.append(best_choice)
             if (checkIfStateIsFinal(best_choice,nrOfCouples)):
+                solution = [[0,0,0,0,0]] + solution
+                displaySolution(solution)
                 print(solution)
-                # displaySolution(parent,visited)
                 exit()
         else: 
             number = 1
@@ -93,8 +108,9 @@ def A_star(state,nrOfCouples):
             parent.append(nod)
             coada.append(best_choice)
             if (checkIfStateIsFinal(best_choice,nrOfCouples)):
+                solution = [[0,0,0,0,0]] + solution
+                displaySolution(solution)
                 print(solution)
-                # displaySolution(parent,visited)
                 exit()
         nod = nod + 1
 
